@@ -32,3 +32,18 @@ def find_pair_with_given_sum_n(a, s):
             h[a[i]] = i
 
     return -1, -1
+
+
+def check_if_subarray_with_sum_0_exists_n(a):
+    h = {0}
+    curr_sum = 0
+
+    for x in a:
+        curr_sum += x
+
+        if curr_sum in h:
+            return True
+
+        h.add(curr_sum)
+
+    return False
