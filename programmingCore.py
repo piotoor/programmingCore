@@ -1,6 +1,15 @@
+import unittest
+import arraysTests
+
 
 def main():
-    print("hello world!")
+    loader = unittest.TestLoader()
+    suite = unittest.TestSuite()
+
+    suite.addTest(loader.loadTestsFromModule(arraysTests))
+
+    runner = unittest.TextTestRunner(verbosity=3)
+    result = runner.run(suite)
 
 
 if __name__ == "__main__":
