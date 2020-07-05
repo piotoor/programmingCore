@@ -29,3 +29,15 @@ class TestFindPairWithGivenSum(unittest.TestCase):
         ans = arrays.find_pair_with_given_sum_n(self.a, -10)
         expected_ans = (-1, -1)
         self.assertEqual(ans, expected_ans)
+
+
+class TestCheckIfSubarrayWithSum0Exists(unittest.TestCase):
+    def test_n(self):
+        a = [-8, 1, 2, 3, 4, 5, -1, -2, -3, -4, -5, 1, 2, 3, 4]
+        expected_ans = True
+        ans = arrays.check_if_subarray_with_sum_0_exists(a)
+        self.assertEqual(ans, expected_ans)
+        a = [-1, -2, -3, -4, -120]
+        expected_ans = False
+        ans = arrays.check_if_subarray_with_sum_0_exists(a)
+        self.assertEqual(ans, expected_ans)
