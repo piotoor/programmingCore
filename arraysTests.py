@@ -41,3 +41,15 @@ class TestCheckIfSubarrayWithSum0Exists(unittest.TestCase):
         expected_ans = False
         ans = arrays.check_if_subarray_with_sum_0_exists_n(a)
         self.assertEqual(ans, expected_ans)
+
+
+class TestReturnAllSubarraysWithSum0(unittest.TestCase):
+    def test_n2(self):
+        a = [3, 4, -7, 3, 1, 3, 1, -4, -2, -2]
+        expected_ans = [(0, 2), (0, 9), (1, 3), (2, 5), (3, 9), (5, 7)]
+        ans = arrays.return_all_subarrays_with_sum_0_n2(a)
+        self.assertEqual(ans, expected_ans)
+        a = [2, 3, 4, 100]
+        expected_ans = []
+        ans = arrays.return_all_subarrays_with_sum_0_n2(a)
+        self.assertEqual(ans, expected_ans)

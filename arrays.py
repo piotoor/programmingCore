@@ -40,10 +40,21 @@ def check_if_subarray_with_sum_0_exists_n(a):
 
     for x in a:
         curr_sum += x
-
         if curr_sum in h:
             return True
-
         h.add(curr_sum)
 
     return False
+
+
+def return_all_subarrays_with_sum_0_n2(a):
+    ans = []
+
+    for i in range(len(a)):
+        curr_sum = 0
+        for j in range(i, len(a)):
+            curr_sum += a[j]
+            if curr_sum == 0:
+                ans.append((i, j))
+
+    return ans
