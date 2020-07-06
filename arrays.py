@@ -58,3 +58,17 @@ def return_all_subarrays_with_sum_0_n2(a):
                 ans.append((i, j))
 
     return ans
+
+
+def sort_binary_array_n(a):
+    num_of_ones = 0
+    
+    for i in range(len(a)):
+        if a[i] == 1:
+            num_of_ones += 1
+        a[i] = 0
+
+    for i in range(-1, -num_of_ones - 1, -1):
+        a[i] = 1
+
+    return a

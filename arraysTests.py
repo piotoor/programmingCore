@@ -53,3 +53,19 @@ class TestReturnAllSubarraysWithSum0(unittest.TestCase):
         expected_ans = []
         ans = arrays.return_all_subarrays_with_sum_0_n2(a)
         self.assertEqual(ans, expected_ans)
+
+
+class TestSortBinaryArray(unittest.TestCase):
+    def test_n(self):
+        a = [0, 1, 0, 0, 1, 0, 1, 1, 1, 0]
+        expected_ans = sorted(a)
+        ans = arrays.sort_binary_array_n(a)
+        self.assertEqual(ans, expected_ans)
+        a = [0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1]
+        expected_ans = sorted(a)
+        ans = arrays.sort_binary_array_n(a)
+        self.assertEqual(ans, expected_ans)
+        a = [1, 0, 0, 0, 0, 0]
+        expected_ans = sorted(a)
+        ans = arrays.sort_binary_array_n(a)
+        self.assertEqual(ans, expected_ans)
