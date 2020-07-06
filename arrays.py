@@ -62,7 +62,7 @@ def return_all_subarrays_with_sum_0_n2(a):
 
 def sort_binary_array_n(a):
     num_of_ones = 0
-    
+
     for i in range(len(a)):
         if a[i] == 1:
             num_of_ones += 1
@@ -72,3 +72,45 @@ def sort_binary_array_n(a):
         a[i] = 1
 
     return a
+
+
+def find_duplicate_hashing_n_n(a):
+    h = set()
+
+    for x in a:
+        if x in h:
+            return x
+        h.add(x)
+
+    return -1
+
+
+def find_duplicate_make_negative_n_1(a):
+    for i in range(len(a)):
+        curr = abs(a[i])
+
+        if a[curr - 1] >= 0:
+            a[curr - 1] = -a[curr - 1]
+        else:
+            return curr
+
+    return -1
+
+
+def find_duplicate_xor_n_1(a):
+    xor = 0
+
+    for x in a:
+        xor ^= x
+
+    for i in range(1, len(a)):
+        xor ^= i
+
+    if xor:
+        return xor
+    else:
+        return -1
+
+
+def find_duplicate_sum_difference_n_1(a):
+    return sum(a) - sum(range(0, len(a)))
