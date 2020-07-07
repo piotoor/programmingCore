@@ -114,3 +114,38 @@ def find_duplicate_xor_n_1(a):
 
 def find_duplicate_sum_difference_n_1(a):
     return sum(a) - sum(range(0, len(a)))
+
+
+def find_max_length_subarray_of_given_sum_n2(a, s):
+    max_length = 0
+    ind = -1
+
+    for i in range(len(a)):
+        curr_sum = 0
+        for j in range(i, len(a)):
+            curr_sum += a[j]
+            if curr_sum == s and max_length < j - i + 1:
+                max_length = j - i + 1
+                ind = j
+
+    return a[ind - max_length + 1: ind + 1]
+
+
+def find_max_length_subarray_of_given_sum_n(a, s):
+    h = {}
+    max_length = 0
+    curr_sum = 0
+    ind = -1
+
+    for i in range(len(a)):
+        curr_sum += a[i]
+        if curr_sum not in h:
+            h[curr_sum] = i
+
+        if curr_sum - s in h and max_length < i - h[curr_sum - s]:
+            max_length = i - h[curr_sum - s]
+            ind = i
+
+    return a[ind - max_length + 1: ind + 1]
+
+
