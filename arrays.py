@@ -1,3 +1,5 @@
+import sys
+
 def find_pair_with_given_sum_n2(a, s):
     for i in range(len(a)):
         for j in range(i + 1, len(a)):
@@ -149,3 +151,48 @@ def find_max_length_subarray_of_given_sum_n(a, s):
     return a[ind - max_length + 1: ind + 1]
 
 
+def find_maximum_product_of_two_elements_in_array_n_2(a):
+    max_prod = -sys.maxsize
+
+    for i in range(len(a)):
+        for j in range(len(a)):
+            if i == j:
+                continue
+            if a[i] * a[j] > max_prod:
+                max_prod = a[i] * a[j]
+
+    return max_prod
+
+
+def find_maximum_product_of_two_elements_in_array_n_logn(a):
+    b = sorted(a)
+
+    if b[0] * b[1] > b[-1] * b[-2]:
+        return b[0] * b[1]
+    else:
+        return b[-1] * b[-2]
+
+
+def find_maximum_product_of_two_elements_in_array_n(a):
+    max_val = -sys.maxsize
+    max2_val = -sys.maxsize
+    min_val = sys.maxsize
+    min2_val = sys.maxsize
+
+    for x in a:
+        if x > max_val:
+            max2_val = max_val
+            max_val = x
+        elif x > max2_val:
+            max2_val = x
+
+        if x < min_val:
+            min2_val = min_val
+            min_val = x
+        elif x < min2_val:
+            min2_val = x
+
+    if max_val * max2_val > min_val * min2_val:
+        return max_val * max2_val
+    else:
+        return min_val * min2_val
