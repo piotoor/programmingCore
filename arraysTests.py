@@ -152,3 +152,19 @@ class TestFindMaximumProductOfTwoElementsInArray(unittest.TestCase):
         self.assertEqual(ans, self.expected_a)
         ans = arrays.find_maximum_product_of_two_elements_in_array_n(self.b)
         self.assertEqual(ans, self.expected_b)
+
+
+class TestDutchNationalFlagProblem(unittest.TestCase):
+    def test_dutch_national_flag_problem_n(self):
+        a = [0, 1, 2, 1, 2, 0, 0, 2, 0, 2, 1, 2, 0, 1]
+        expected_a = [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2]
+        ans = arrays.dutch_national_flag_problem_n(a)
+        self.assertEqual(ans, expected_a)
+        a = [0, 1, 2]
+        expected_a = [0, 1, 2]
+        ans = arrays.dutch_national_flag_problem_n(a)
+        self.assertEqual(ans, expected_a)
+        a = [0, 1, 1, 1, 1, 1, 2]
+        expected_a = [0, 1, 1, 1, 1, 1, 2]
+        ans = arrays.dutch_national_flag_problem_n(a)
+        self.assertEqual(ans, expected_a)

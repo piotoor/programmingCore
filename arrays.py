@@ -196,3 +196,24 @@ def find_maximum_product_of_two_elements_in_array_n(a):
         return max_val * max2_val
     else:
         return min_val * min2_val
+
+
+def dutch_national_flag_problem_n(a):
+    l = 0
+    m = 0
+    h = len(a) - 1
+    pivot = 1
+
+    while m <= h:
+        if a[m] > pivot:
+            a[m], a[h] = a[h], a[m]
+            h -= 1
+        elif a[m] < pivot:
+            a[m], a[l] = a[l], a[m]
+            l += 1
+            m += 1
+        else:
+            m += 1
+
+    return a
+
