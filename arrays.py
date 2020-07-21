@@ -217,3 +217,19 @@ def dutch_national_flag_problem_n(a):
 
     return a
 
+
+def merge_two_sorted_arrays_in_place_mn(a, b):
+    for i in range(len(a)):
+        if a[i] > b[0]:
+            a[i], b[0] = b[0], a[i]
+            tmp = b[0]
+            k = 1
+            while k < len(b) and b[k] < tmp:
+                b[k - 1] = b[k]
+                k = k + 1
+            b[k - 1] = tmp
+        print(a)
+        print(b)
+        print("\n")
+
+    return a, b
