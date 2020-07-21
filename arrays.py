@@ -228,8 +228,38 @@ def merge_two_sorted_arrays_in_place_mn(a, b):
                 b[k - 1] = b[k]
                 k = k + 1
             b[k - 1] = tmp
-        print(a)
-        print(b)
-        print("\n")
 
     return a, b
+
+
+def merge_two_arrays_one_containing_vacant_zeros_mn(a, b):
+    k = 0
+    for i in range(len(a)):
+        if a[i] != 0:
+            a[k] = a[i]
+            a[i] = 0
+            k = k + 1
+
+    t = len(a) - 1
+    k = k - 1
+    n = len(b) - 1
+
+    while k >= 0 and n >= 0:
+        if a[k] > b[n]:
+            a[t] = a[k]
+            k -= 1
+        else:
+            a[t] = b[n]
+            n -= 1
+
+        t -= 1
+
+    while n >= 0:
+        a[t] = b[n]
+        t -= 1
+        n -= 1
+
+    return a
+
+
+

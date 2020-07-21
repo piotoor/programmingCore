@@ -179,3 +179,13 @@ class TestMergeTwoSortedArraysInPlace(unittest.TestCase):
         ans_a, ans_b = arrays.merge_two_sorted_arrays_in_place_mn(a, b)
         self.assertEqual(ans_a, expected_a)
         self.assertEqual(ans_b, expected_b)
+
+
+class TestMergeTwoArraysOneContainingVacantZeros(unittest.TestCase):
+    def test_merge_two_arrays_one_containing_vacant_zeros_mn(self):
+        a = [0, 2, 3, 0, 6, 0, 0, 10, 12, 0]
+        b = [1, 4, 8, 12, 13]
+        expected_a = [1, 2, 3, 4, 6, 8, 10, 12, 12, 13]
+        ans = arrays.merge_two_arrays_one_containing_vacant_zeros_mn(a, b)
+        self.assertEqual(ans, expected_a)
+
