@@ -262,4 +262,21 @@ def merge_two_arrays_one_containing_vacant_zeros_mn(a, b):
     return a
 
 
+def index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(a):
+    zero = -1
+    max_zero = -1
+    curr_subarray = 0
+    max_subarray = 0
 
+    for i in range(len(a)):
+        if a[i] == 1:
+            curr_subarray += 1
+        else:
+            curr_subarray = i - zero - 1
+            zero = i
+
+        if curr_subarray > max_subarray:
+            max_subarray = curr_subarray
+            max_zero = zero
+
+    return max_zero

@@ -1,4 +1,6 @@
 import unittest
+from csv import unix_dialect
+
 import arrays
 
 
@@ -189,3 +191,18 @@ class TestMergeTwoArraysOneContainingVacantZeros(unittest.TestCase):
         ans = arrays.merge_two_arrays_one_containing_vacant_zeros_mn(a, b)
         self.assertEqual(ans, expected_a)
 
+
+class TestIndexOfZeroToBeReplacedToGetMaxLengthSubarrayOfOnes(unittest.TestCase):
+    def test_index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(self):
+        a = [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]
+        b = [1, 1, 1, 1, 1, 1]
+        c = [0, 0, 0, 0, 0]
+        expected_ans = 13
+        expected_ans_b = -1
+        expected_ans_c = -1
+        ans = arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(a)
+        self.assertEqual(ans, expected_ans)
+        ans = arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(b)
+        self.assertEqual(ans, expected_ans_b)
+        ans = arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(c)
+        self.assertEqual(ans, expected_ans_c)
