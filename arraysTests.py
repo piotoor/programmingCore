@@ -265,3 +265,23 @@ class TestBoyerMooreMajorityAlgorithm(unittest.TestCase):
         self.assertEqual(ans_c, self.expected_c)
         ans_d = arrays.boyer_moore_n_n(self.d)
         self.assertEqual(ans_d, self.expected_d)
+
+
+class TestMoveAllZerosToTheEnd(unittest.TestCase):
+    def test_move_all_zeros_to_the_end_n_1(self):
+        a = [1, 0, 2, 0, 1, 0, 0, 0, 1]
+        expected_a = [1, 2, 1, 1, 0, 0, 0, 0, 0]
+        b = [0, 0, 0, 0]
+        expected_b = [0, 0, 0, 0]
+        c = [1, 2, 3, 4, 1]
+        expected_c = [1, 2, 3, 4, 1]
+        d = [0, 0, 0, 0, 1, 2, 3, 4]
+        expected_d = [1, 2, 3, 4, 0, 0, 0, 0]
+        ans_a = arrays.move_all_zeros_to_the_end_n_1(a)
+        self.assertEqual(ans_a, expected_a)
+        ans_b = arrays.move_all_zeros_to_the_end_n_1(b)
+        self.assertEqual(ans_b, expected_b)
+        ans_c = arrays.move_all_zeros_to_the_end_n_1(c)
+        self.assertEqual(ans_c, expected_c)
+        ans_d = arrays.move_all_zeros_to_the_end_n_1(d)
+        self.assertEqual(ans_d, expected_d)

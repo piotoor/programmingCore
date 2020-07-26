@@ -357,3 +357,16 @@ def boyer_moore_n_n(a):
             return k
 
     return None
+
+
+def move_all_zeros_to_the_end_n_1(a):
+    target = 0
+
+    for i in range(len(a)):
+        if a[i] != 0:
+            a[target] = a[i]
+            if target != i:
+                a[i] = 0
+            target += 1
+
+    return a
