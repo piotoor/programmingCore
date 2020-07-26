@@ -280,3 +280,24 @@ def index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(a):
             max_zero = zero
 
     return max_zero
+
+
+def fisher_yates_shuffle_n(a):
+    import random
+
+    for i in range(len(a) - 1, 0, -1):
+        j = random.randint(0, i)
+        a[i], a[j] = a[j], a[i]
+
+    return a
+
+
+def every_second_element_greater_than_its_neighbours_n(a):
+    for i in range(1, len(a), 2):
+        if a[i - 1] > a[i]:
+            a[i - 1], a[i] = a[i], a[i - 1]
+
+        if i + 1 < len(a) and a[i] < a[i + 1]:
+            a[i + 1], a[i] = a[i], a[i + 1]
+
+    return a

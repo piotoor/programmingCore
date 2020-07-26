@@ -206,3 +206,18 @@ class TestIndexOfZeroToBeReplacedToGetMaxLengthSubarrayOfOnes(unittest.TestCase)
         self.assertEqual(ans, expected_ans_b)
         ans = arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(c)
         self.assertEqual(ans, expected_ans_c)
+
+
+class TestFisherYatesShuffle(unittest.TestCase):
+    def test_fisher_yates_shuffle_n(self):
+        a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        ans = arrays.fisher_yates_shuffle_n(a.copy())
+        self.assertNotEqual(a, ans)
+
+
+class TestEverySecondElementGreaterThanItsNeighbours(unittest.TestCase):
+    def test_every_second_element_greater_than_its_neighbours_n(self):
+        a = [9, 5, 3, 8, 2, 4, 7, 1, 0]
+        expected_a = [5, 9, 3, 8, 2, 7, 1, 4, 0]
+        ans = arrays.every_second_element_greater_than_its_neighbours_n(a)
+        self.assertEqual(ans, expected_a)
