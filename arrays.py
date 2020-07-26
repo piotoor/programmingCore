@@ -341,3 +341,19 @@ def find_longest_consecutive_subarray_n_logn(a):
     return b[max_ind - max_len + 1: max_ind + 1]
 
 
+def boyer_moore_n_n(a):
+    frequency = dict()
+
+    for x in a:
+        if x in frequency:
+            frequency[x] += 1
+        else:
+            frequency[x] = 1
+
+    threshold = len(a) / 2
+
+    for k in frequency:
+        if frequency[k] > threshold:
+            return k
+
+    return None
