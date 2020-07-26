@@ -321,3 +321,23 @@ def find_equilibrium_index_of_an_array_n(a):
             ans.append(i)
 
     return tuple(ans)
+
+
+def find_longest_consecutive_subarray_n_logn(a):
+    b = sorted(a)
+    max_ind = 1
+    curr_len = 1
+    max_len = 1
+
+    for i in range(1, len(b)):
+        if b[i] - b[i - 1] <= 1:
+            curr_len += 1
+            if curr_len > max_len:
+                max_len = curr_len
+                max_ind = i
+        else:
+            curr_len = 1
+
+    return b[max_ind - max_len + 1: max_ind + 1]
+
+

@@ -233,3 +233,15 @@ class TestFindEquilibriumIndexOfAnArray(unittest.TestCase):
         expected_ans = (4, 6)
         ans = arrays.find_equilibrium_index_of_an_array_n(a)
         self.assertEqual(ans, expected_ans)
+
+
+class TestFindLongestConsecutiveSubarray(unittest.TestCase):
+    def test_find_longest_consecutive_subarray_n_logn(self):
+        a = [2, 4, 8, 12, 13, 14, 6, 9, 2, 7, 5]
+        expected_ans = [4, 5, 6, 7, 8, 9]
+        ans = arrays.find_longest_consecutive_subarray_n_logn(a)
+        self.assertEqual(ans, expected_ans)
+        a = [-1, -2, 0, 4, 12, 13, 14, 3, 1, 2]
+        expected_ans = [-2, -1, 0, 1, 2, 3, 4]
+        ans = arrays.find_longest_consecutive_subarray_n_logn(a)
+        self.assertEqual(ans, expected_ans)
