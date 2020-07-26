@@ -370,3 +370,38 @@ def move_all_zeros_to_the_end_n_1(a):
             target += 1
 
     return a
+
+
+def replace_each_element_with_product_of_every_other_element_n_n(a):
+    prefix_left = [1]
+    prefix_right = [1]
+
+    for i in range(1, len(a)):
+        prefix_left.append(prefix_left[i - 1] * a[i - 1])
+        prefix_right.append(prefix_right[i - 1] * a[len(a) - i])
+
+    prefix_right.reverse()
+
+    ans = []
+
+    for i in range(len(a)):
+        ans.append(prefix_left[i] * prefix_right[i])
+
+    return ans
+
+
+def replace_each_element_with_product_of_every_other_element_n_1_rec(a, left, i, n):
+    if i == n:
+        return 1
+
+    curr = a[i]
+    right = replace_each_element_with_product_of_every_other_element_n_1_rec(a, left * a[i], i + 1, n)
+    a[i] = left * right
+
+    return curr * right
+
+
+def replace_each_element_with_product_of_every_other_element_n_1(a):
+
+    replace_each_element_with_product_of_every_other_element_n_1_rec(a, 1, 0, len(a))
+    return a

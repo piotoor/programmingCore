@@ -285,3 +285,29 @@ class TestMoveAllZerosToTheEnd(unittest.TestCase):
         self.assertEqual(ans_c, expected_c)
         ans_d = arrays.move_all_zeros_to_the_end_n_1(d)
         self.assertEqual(ans_d, expected_d)
+
+
+class TestReplaceEachElementWithProductOfEveryOtherElement(unittest.TestCase):
+    def setUp(self):
+        self.a = [1, 2, 3, 4, 5, 6]
+        self.expected_a = [720, 360, 240, 180, 144, 120]
+        self.b = [-1, -10, 20, 4, 11]
+        self.expected_b = [-8800, -880, 440, 2200, 800]
+        self.c = [0, 1, 2, 3, 4, 5]
+        self.expected_c = [120, 0, 0, 0, 0, 0]
+
+    def test_replace_each_element_with_product_of_every_other_element_n_n(self):
+        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.a)
+        self.assertEqual(ans, self.expected_a)
+        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.b)
+        self.assertEqual(ans, self.expected_b)
+        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.c)
+        self.assertEqual(ans, self.expected_c)
+
+    def test_replace_each_element_with_product_of_every_other_element_n_1(self):
+        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.a)
+        self.assertEqual(ans, self.expected_a)
+        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.b)
+        self.assertEqual(ans, self.expected_b)
+        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.c)
+        self.assertEqual(ans, self.expected_c)
