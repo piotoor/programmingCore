@@ -221,3 +221,15 @@ class TestEverySecondElementGreaterThanItsNeighbours(unittest.TestCase):
         expected_a = [5, 9, 3, 8, 2, 7, 1, 4, 0]
         ans = arrays.every_second_element_greater_than_its_neighbours_n(a)
         self.assertEqual(ans, expected_a)
+
+
+class TestFindEquilibriumIndexOfAnArray(unittest.TestCase):
+    def test_find_equilibrium_index_of_an_array_n(self):
+        a = [0, -3, 5, -4, -2, 3, 1, 0]
+        expected_ans = (0, 3, 7)
+        ans = arrays.find_equilibrium_index_of_an_array_n(a)
+        self.assertEqual(ans, expected_ans)
+        a = [0, 1, 2, 3, -10, 3, 4, -1]
+        expected_ans = (4, 6)
+        ans = arrays.find_equilibrium_index_of_an_array_n(a)
+        self.assertEqual(ans, expected_ans)

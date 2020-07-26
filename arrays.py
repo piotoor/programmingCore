@@ -1,4 +1,5 @@
 import sys
+import itertools
 
 def find_pair_with_given_sum_n2(a, s):
     for i in range(len(a)):
@@ -301,3 +302,22 @@ def every_second_element_greater_than_its_neighbours_n(a):
             a[i + 1], a[i] = a[i], a[i + 1]
 
     return a
+
+
+def find_equilibrium_index_of_an_array_n(a):
+    prefix_sums = list(itertools.accumulate(a))
+    ans = list()
+
+    for i in range(len(a)):
+        left = prefix_sums[i - 1]
+        right = prefix_sums[-1]
+
+        if i == 0:
+            left = 0
+        elif i + 1 == len(a):
+            right = 0
+
+        if left == right - left - a[i]:
+            ans.append(i)
+
+    return tuple(ans)
