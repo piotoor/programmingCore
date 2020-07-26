@@ -152,7 +152,7 @@ def find_max_length_subarray_of_given_sum_n(a, s):
     return a[ind - max_length + 1: ind + 1]
 
 
-def find_maximum_product_of_two_elements_in_array_n_2(a):
+def find_maximum_product_of_two_elements_in_array_n2(a):
     max_prod = -sys.maxsize
 
     for i in range(len(a)):
@@ -165,7 +165,7 @@ def find_maximum_product_of_two_elements_in_array_n_2(a):
     return max_prod
 
 
-def find_maximum_product_of_two_elements_in_array_n_logn(a):
+def find_maximum_product_of_two_elements_in_array_nlogn(a):
     b = sorted(a)
 
     if b[0] * b[1] > b[-1] * b[-2]:

@@ -137,16 +137,16 @@ class TestFindMaximumProductOfTwoElementsInArray(unittest.TestCase):
         self.b = [1, 2, 3, 4, 5, 6, 6, 7, 2]
         self.expected_b = 42
 
-    def test_find_maximum_product_of_two_elements_in_array_n_2(self):
-        ans = arrays.find_maximum_product_of_two_elements_in_array_n_2(self.a)
+    def test_find_maximum_product_of_two_elements_in_array_n2(self):
+        ans = arrays.find_maximum_product_of_two_elements_in_array_n2(self.a)
         self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_maximum_product_of_two_elements_in_array_n_2(self.b)
+        ans = arrays.find_maximum_product_of_two_elements_in_array_n2(self.b)
         self.assertEqual(ans, self.expected_b)
 
-    def test_find_maximum_product_of_two_elements_in_array_n_logn(self):
-        ans = arrays.find_maximum_product_of_two_elements_in_array_n_logn(self.a)
+    def test_find_maximum_product_of_two_elements_in_array_nlogn(self):
+        ans = arrays.find_maximum_product_of_two_elements_in_array_nlogn(self.a)
         self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_maximum_product_of_two_elements_in_array_n_logn(self.b)
+        ans = arrays.find_maximum_product_of_two_elements_in_array_nlogn(self.b)
         self.assertEqual(ans, self.expected_b)
 
     def test_find_maximum_product_of_two_elements_in_array_n(self):
