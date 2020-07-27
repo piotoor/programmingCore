@@ -1,6 +1,7 @@
 import sys
 import itertools
 
+
 def find_pair_with_given_sum_n2(a, s):
     for i in range(len(a)):
         for j in range(i + 1, len(a)):
@@ -200,7 +201,7 @@ def find_maximum_product_of_two_elements_in_array_n(a):
 
 
 def dutch_national_flag_problem_n(a):
-    l = 0
+    k = 0
     m = 0
     h = len(a) - 1
     pivot = 1
@@ -210,8 +211,8 @@ def dutch_national_flag_problem_n(a):
             a[m], a[h] = a[h], a[m]
             h -= 1
         elif a[m] < pivot:
-            a[m], a[l] = a[l], a[m]
-            l += 1
+            a[m], a[k] = a[k], a[m]
+            k += 1
             m += 1
         else:
             m += 1

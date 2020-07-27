@@ -9,7 +9,7 @@ def main():
     suite.addTest(loader.loadTestsFromModule(arraysTests))
 
     runner = unittest.TextTestRunner(verbosity=3)
-    result = runner.run(suite)
+    runner.run(suite)
 
 
 if __name__ == "__main__":
