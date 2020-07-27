@@ -10,7 +10,7 @@ def find_pair_with_given_sum_n2(a, s):
     return -1, -1
 
 
-def find_pair_with_given_sum_n_logn(a, s):
+def find_pair_with_given_sum_nlogn(a, s):
     b = sorted(a)
     i = 0
     j = len(b) - 1
@@ -137,6 +137,8 @@ def find_max_length_subarray_of_given_sum_n2(a, s):
 
 def find_max_length_subarray_of_given_sum_n(a, s):
     h = {}
+    if len(a) > 0:
+        h[0] = -1
     max_length = 0
     curr_sum = 0
     ind = -1
@@ -265,8 +267,11 @@ def merge_two_arrays_one_containing_vacant_zeros_mn(a, b):
 
 
 def index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(a):
+    if len(a) == 0:
+        return -1
+
     zero = -1
-    max_zero = -1
+    max_zero = 0
     curr_subarray = 0
     max_subarray = 0
 
@@ -324,9 +329,9 @@ def find_equilibrium_index_of_an_array_n(a):
     return tuple(ans)
 
 
-def find_longest_consecutive_subarray_n_logn(a):
+def find_longest_consecutive_subarray_nlogn(a):
     b = sorted(a)
-    max_ind = 1
+    max_ind = 0
     curr_len = 1
     max_len = 1
 
