@@ -496,3 +496,4 @@ class TestReplaceEachElementWithProductOfEveryOtherElement(unittest.TestCase):
         self.assertEqual(ans, self.expected_f)
         ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.g)
         self.assertEqual(ans, self.expected_g)
+
