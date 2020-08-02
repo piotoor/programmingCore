@@ -1,5 +1,6 @@
 import sys
 import itertools
+import collections
 
 
 def find_pair_with_given_sum_n2(a, s):
@@ -408,8 +409,13 @@ def replace_each_element_with_product_of_every_other_element_n_1_rec(a, left, i,
 
 
 def replace_each_element_with_product_of_every_other_element_n_1(a):
-
     replace_each_element_with_product_of_every_other_element_n_1_rec(a, 1, 0, len(a))
     return a
 
 
+def longest_increasing_subsequence_nlogn(a):
+    s = collections.OrderedDict()
+    ans = []
+
+    for x in a:
+        

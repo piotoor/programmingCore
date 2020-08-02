@@ -497,3 +497,30 @@ class TestReplaceEachElementWithProductOfEveryOtherElement(unittest.TestCase):
         ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.g)
         self.assertEqual(ans, self.expected_g)
 
+
+class TestLongestIncreasingSubsequence(unittest.TestCase):
+    def test_longest_increasing_subsequence_nlogn(self):
+        a = []
+        expected = []
+        ans = arrays.longest_increasing_subsequence_nlogn(a)
+        self.assertEqual(ans, expected)
+        a = []
+        expected = []
+        ans = arrays.longest_increasing_subsequence_nlogn(a)
+        self.assertEqual(ans, expected)
+        a = [1, 2]
+        expected = [1, 2]
+        ans = arrays.longest_increasing_subsequence_nlogn(a)
+        self.assertEqual(ans, expected)
+        a = [1, 0, 2]
+        expected = [1, 2]
+        ans = arrays.longest_increasing_subsequence_nlogn(a)
+        self.assertEqual(ans, expected)
+        a = [3, 2, 1]
+        expected = []
+        ans = arrays.longest_increasing_subsequence_nlogn(a)
+        self.assertEqual(ans, expected)
+        a = [1, 2, 3, 0, 4, 5, 6, 0, 7, 8, -1, 9]
+        expected = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        ans = arrays.longest_increasing_subsequence_nlogn(a)
+        self.assertEqual(ans, expected)
