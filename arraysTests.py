@@ -1,46 +1,23 @@
 import unittest
-
+from parameterized import parameterized_class
 import arrays
 
 
+@parameterized_class(("array", "sum", "expected"), [
+    ([8, 7, 2, 5, 3, 1], 11, (0, 4)),
+    ([8, 7, 2, 5, 3, 1], -10, (-1, -1)),
+    ([], 1, (-1, -1)),
+    ([1], 1, (-1, -1)),
+])
 class TestFindPairWithGivenSum(unittest.TestCase):
-    def setUp(self):
-        self.a = [8, 7, 2, 5, 3, 1]
-        self.b = []
-        self.c = [1]
-        self.expected_a = 0, 4
-        self.expected_a2 = 2, 5
-        self.expected_b = -1, -1
-
     def test_n2(self):
-        ans = arrays.find_pair_with_given_sum_n2(self.a, 11)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_pair_with_given_sum_n2(self.a, -10)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_pair_with_given_sum_n2(self.b, 1)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_pair_with_given_sum_n2(self.c, 1)
-        self.assertEqual(ans, self.expected_b)
+        self.assertEqual(arrays.find_pair_with_given_sum_n2(self.array, self.sum), self.expected)
 
     def test_nlogn(self):
-        ans = arrays.find_pair_with_given_sum_nlogn(self.a, 11)
-        self.assertEqual(ans, self.expected_a2)
-        ans = arrays.find_pair_with_given_sum_nlogn(self.a, -10)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_pair_with_given_sum_nlogn(self.b, 1)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_pair_with_given_sum_nlogn(self.c, 1)
-        self.assertEqual(ans, self.expected_b)
+        self.assertEqual(arrays.find_pair_with_given_sum_nlogn(self.array, self.sum), self.expected)
 
     def test_n(self):
-        ans = arrays.find_pair_with_given_sum_n(self.a, 11)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_pair_with_given_sum_n(self.a, -10)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_pair_with_given_sum_n(self.b, 1)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_pair_with_given_sum_n(self.c, 1)
-        self.assertEqual(ans, self.expected_b)
+        self.assertEqual(arrays.find_pair_with_given_sum_n(self.array, self.sum), self.expected)
 
 
 class TestCheckIfSubarrayWithSum0Exists(unittest.TestCase):

@@ -417,5 +417,4 @@ def longest_increasing_subsequence_nlogn(a):
     s = collections.OrderedDict()
     ans = []
 
-    for x in a:
-        
+    # for x in a:
