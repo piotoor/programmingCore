@@ -13,11 +13,21 @@ class TestFindPairWithGivenSum(unittest.TestCase):
     def test_n2(self):
         self.assertEqual(arrays.find_pair_with_given_sum_n2(self.array, self.sum), self.expected)
 
+    def test_n(self):
+        self.assertEqual(arrays.find_pair_with_given_sum_n(self.array, self.sum), self.expected)
+
+
+@parameterized_class(("array", "sum", "expected"), [
+    ([8, 7, 2, 5, 3, 1], 11, (2, 5)),
+    ([8, 7, 2, 5, 3, 1], -10, (-1, -1)),
+    ([], 1, (-1, -1)),
+    ([1], 1, (-1, -1)),
+])
+class TestFindPairWithGivenSumNlogn(unittest.TestCase):
     def test_nlogn(self):
         self.assertEqual(arrays.find_pair_with_given_sum_nlogn(self.array, self.sum), self.expected)
 
-    def test_n(self):
-        self.assertEqual(arrays.find_pair_with_given_sum_n(self.array, self.sum), self.expected)
+
 
 
 class TestCheckIfSubarrayWithSum0Exists(unittest.TestCase):
