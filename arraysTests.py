@@ -1,5 +1,5 @@
 import unittest
-from parameterized import parameterized_class
+from parameterized import parameterized_class, parameterized
 import arrays
 
 
@@ -21,27 +21,15 @@ class TestFindPairWithGivenSum(unittest.TestCase):
 
 
 class TestCheckIfSubarrayWithSum0Exists(unittest.TestCase):
-    def test_n(self):
-        a = [-8, 1, 2, 3, 4, 5, -1, -2, -3, -4, -5, 1, 2, 3, 4]
-        expected_ans = True
-        ans = arrays.check_if_subarray_with_sum_0_exists_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [-1, -2, -3, -4, -120]
-        expected_ans = False
-        ans = arrays.check_if_subarray_with_sum_0_exists_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = []
-        expected_ans = False
-        ans = arrays.check_if_subarray_with_sum_0_exists_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [0]
-        expected_ans = True
-        ans = arrays.check_if_subarray_with_sum_0_exists_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [1]
-        expected_ans = False
-        ans = arrays.check_if_subarray_with_sum_0_exists_n(a)
-        self.assertEqual(ans, expected_ans)
+    @parameterized.expand([
+        ("test 1", [-8, 1, 2, 3, 4, 5, -1, -2, -3, -4, -5, 1, 2, 3, 4], True),
+        ("test 2", [-1, -2, -3, -4, -120], False),
+        ("test 3", [], False),
+        ("test 4", [0], True),
+        ("test 5", [1], False),
+    ])
+    def test_n(self, _, array, expected):
+        self.assertEqual(arrays.check_if_subarray_with_sum_0_exists_n(array), expected)
 
 
 class TestReturnAllSubarraysWithSum0(unittest.TestCase):
