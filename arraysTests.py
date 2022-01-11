@@ -45,31 +45,16 @@ class TestReturnAllSubarraysWithSum0(unittest.TestCase):
 
 
 class TestSortBinaryArray(unittest.TestCase):
-    def test_n(self):
-        a = [0, 1, 0, 0, 1, 0, 1, 1, 1, 0]
-        expected_ans = sorted(a)
-        ans = arrays.sort_binary_array_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1]
-        expected_ans = sorted(a)
-        ans = arrays.sort_binary_array_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [1, 0, 0, 0, 0, 0]
-        expected_ans = sorted(a)
-        ans = arrays.sort_binary_array_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = []
-        expected_ans = sorted(a)
-        ans = arrays.sort_binary_array_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [1]
-        expected_ans = sorted(a)
-        ans = arrays.sort_binary_array_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [0]
-        expected_ans = sorted(a)
-        ans = arrays.sort_binary_array_n(a)
-        self.assertEqual(ans, expected_ans)
+    @parameterized.expand([
+        ("test 1", [0, 1, 0, 0, 1, 0, 1, 1, 1, 0]),
+        ("test 2", [0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1]),
+        ("test 3", [1, 0, 0, 0, 0, 0]),
+        ("test 3", []),
+        ("test 4", [1]),
+        ("test 5", [0]),
+    ])
+    def test_n(self, _, array):
+        self.assertEqual(arrays.sort_binary_array_n(array), sorted(array))
 
 
 class TestFindDuplicateInLimitedRangeArray(unittest.TestCase):
