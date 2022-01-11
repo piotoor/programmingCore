@@ -28,8 +28,6 @@ class TestFindPairWithGivenSumNlogn(unittest.TestCase):
         self.assertEqual(arrays.find_pair_with_given_sum_nlogn(self.array, self.sum), self.expected)
 
 
-
-
 class TestCheckIfSubarrayWithSum0Exists(unittest.TestCase):
     @parameterized.expand([
         ("test 1", [-8, 1, 2, 3, 4, 5, -1, -2, -3, -4, -5, 1, 2, 3, 4], True),
