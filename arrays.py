@@ -91,11 +91,12 @@ def find_duplicate_hashing_n_n(a):
 
 
 def find_duplicate_make_negative_n_1(a):
-    for i in range(len(a)):
-        curr = abs(a[i])
+    b = a.copy()
+    for i in range(len(b)):
+        curr = abs(b[i])
 
-        if a[curr - 1] >= 0:
-            a[curr - 1] = -a[curr - 1]
+        if b[curr - 1] >= 0:
+            b[curr - 1] = -b[curr - 1]
         else:
             return curr
 
