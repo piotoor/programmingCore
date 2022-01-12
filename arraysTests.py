@@ -84,47 +84,19 @@ class TestFindDuplicateInLimitedRangeArray(unittest.TestCase):
         self.assertEqual(self.expected, arrays.find_duplicate_sum_difference_n_1(self.array))
 
 
+@parameterized_class(("array", "sum", "expected"), [
+    ([5, 6, -5, 5, 3, 5, 3, -2, 0], 8, [-5, 5, 3, 5]),
+    ([], 8, []),
+    ([1, 2, 3, 4], 11, []),
+    ([1], 1, [1]),
+    ([1, 2, 3, 1, 1, 1], 3, [1, 1, 1]),
+])
 class TestFindMaxLengthSubarrayOfGivenSum(unittest.TestCase):
-    def setUp(self):
-        self.a = [5, 6, -5, 5, 3, 5, 3, -2, 0]
-        self.expected_a = [-5, 5, 3, 5]
-        self.sum_a = 8
-        self.b = []
-        self.expected_b = []
-        self.sum_b = 8
-        self.c = [1, 2, 3, 4]
-        self.expected_c = []
-        self.sum_c = 11
-        self.d = [1]
-        self.expected_d = [1]
-        self.sum_d = 1
-        self.e = [1, 2, 3, 1, 1, 1]
-        self.expected_e = [1, 1, 1]
-        self.sum_e = 3
-
     def test_find_max_length_subarray_of_given_sum_n2(self):
-        ans = arrays.find_max_length_subarray_of_given_sum_n2(self.a, self.sum_a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_max_length_subarray_of_given_sum_n2(self.b, self.sum_b)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_max_length_subarray_of_given_sum_n2(self.c, self.sum_c)
-        self.assertEqual(ans, self.expected_c)
-        ans = arrays.find_max_length_subarray_of_given_sum_n2(self.d, self.sum_d)
-        self.assertEqual(ans, self.expected_d)
-        ans = arrays.find_max_length_subarray_of_given_sum_n2(self.e, self.sum_e)
-        self.assertEqual(ans, self.expected_e)
+        self.assertEqual(self.expected, arrays.find_max_length_subarray_of_given_sum_n2(self.array, self.sum))
 
     def test_find_max_length_subarray_of_given_sum_n(self):
-        ans = arrays.find_max_length_subarray_of_given_sum_n(self.a, self.sum_a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_max_length_subarray_of_given_sum_n(self.b, self.sum_b)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_max_length_subarray_of_given_sum_n(self.c, self.sum_c)
-        self.assertEqual(ans, self.expected_c)
-        ans = arrays.find_max_length_subarray_of_given_sum_n(self.d, self.sum_d)
-        self.assertEqual(ans, self.expected_d)
-        ans = arrays.find_max_length_subarray_of_given_sum_n(self.e, self.sum_e)
-        self.assertEqual(ans, self.expected_e)
+        self.assertEqual(self.expected, arrays.find_max_length_subarray_of_given_sum_n(self.array, self.sum))
 
 
 class TestFindMaximumProductOfTwoElementsInArray(unittest.TestCase):
