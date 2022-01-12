@@ -65,46 +65,23 @@ class TestSortBinaryArray(unittest.TestCase):
         self.assertEqual(arrays.sort_binary_array_n(array), sorted(array))
 
 
+@parameterized_class(("array", "expected"), [
+    ([1, 2, 3, 4, 5, 5, 6, 7], 5),
+    ([1, 1, 2, 3, 4, 5], 1),
+    ([1, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10], 6),
+])
 class TestFindDuplicateInLimitedRangeArray(unittest.TestCase):
-    def setUp(self):
-        self.a = [1, 2, 3, 4, 5, 5, 6, 7]
-        self.b = [1, 1, 2, 3, 4, 5]
-        self.c = [1, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10]
-        self.expected_a = 5
-        self.expected_b = 1
-        self.expected_c = 6
-
     def test_find_duplicate_hashing_n_n(self):
-        ans = arrays.find_duplicate_hashing_n_n(self.a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_duplicate_hashing_n_n(self.b)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_duplicate_hashing_n_n(self.c)
-        self.assertEqual(ans, self.expected_c)
+        self.assertEqual(self.expected, arrays.find_duplicate_hashing_n_n(self.array))
 
     def test_find_duplicate_make_negative_n_1(self):
-        ans = arrays.find_duplicate_make_negative_n_1(self.a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_duplicate_make_negative_n_1(self.b)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_duplicate_make_negative_n_1(self.c)
-        self.assertEqual(ans, self.expected_c)
+        self.assertEqual(self.expected, arrays.find_duplicate_make_negative_n_1(self.array))
 
     def test_find_duplicate_xor_n_1(self):
-        ans = arrays.find_duplicate_xor_n_1(self.a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_duplicate_xor_n_1(self.b)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_duplicate_xor_n_1(self.c)
-        self.assertEqual(ans, self.expected_c)
+        self.assertEqual(self.expected, arrays.find_duplicate_xor_n_1(self.array))
 
     def test_find_duplicate_sum_difference_n_1(self):
-        ans = arrays.find_duplicate_sum_difference_n_1(self.a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_duplicate_sum_difference_n_1(self.b)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.find_duplicate_sum_difference_n_1(self.c)
-        self.assertEqual(ans, self.expected_c)
+        self.assertEqual(self.expected, arrays.find_duplicate_sum_difference_n_1(self.array))
 
 
 class TestFindMaxLengthSubarrayOfGivenSum(unittest.TestCase):
