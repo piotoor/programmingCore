@@ -158,16 +158,13 @@ class TestIndexOfZeroToBeReplacedToGetMaxLengthSubarrayOfOnes(unittest.TestCase)
 
 
 class TestFisherYatesShuffle(unittest.TestCase):
-    def test_fisher_yates_shuffle_n(self):
-        a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        ans = arrays.fisher_yates_shuffle_n(a.copy())
-        self.assertNotEqual(a, ans)
-        b = [0]
-        ans = arrays.fisher_yates_shuffle_n(b.copy())
-        self.assertEqual(b, ans)
-        c = []
-        ans = arrays.fisher_yates_shuffle_n(c.copy())
-        self.assertEqual(c, ans)
+    @parameterized.expand([
+        ("test 1", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+        ("test 2", [0, 1, 2, 3, 4]),
+        ("test 3", [0, 1, 2]),
+    ])
+    def test_fisher_yates_shuffle_n(self, _, array):
+        self.assertNotEqual(array, arrays.fisher_yates_shuffle_n(array.copy()))
 
 
 class TestEverySecondElementGreaterThanItsNeighbours(unittest.TestCase):
