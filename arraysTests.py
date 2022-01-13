@@ -99,30 +99,19 @@ class TestFindMaxLengthSubarrayOfGivenSum(unittest.TestCase):
         self.assertEqual(self.expected, arrays.find_max_length_subarray_of_given_sum_n(self.array, self.sum))
 
 
+@parameterized_class(("array", "expected"), [
+    ([-2, -10, 3, 1, 5, -11], 110),
+    ([1, 2, 3, 4, 5, 6, 6, 7, 2], 42),
+])
 class TestFindMaximumProductOfTwoElementsInArray(unittest.TestCase):
-    def setUp(self):
-        self.a = [-2, -10, 3, 1, 5, -11]
-        self.expected_a = 110
-        self.b = [1, 2, 3, 4, 5, 6, 6, 7, 2]
-        self.expected_b = 42
-
     def test_find_maximum_product_of_two_elements_in_array_n2(self):
-        ans = arrays.find_maximum_product_of_two_elements_in_array_n2(self.a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_maximum_product_of_two_elements_in_array_n2(self.b)
-        self.assertEqual(ans, self.expected_b)
+        self.assertEqual(self.expected, arrays.find_maximum_product_of_two_elements_in_array_n2(self.array))
 
     def test_find_maximum_product_of_two_elements_in_array_nlogn(self):
-        ans = arrays.find_maximum_product_of_two_elements_in_array_nlogn(self.a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_maximum_product_of_two_elements_in_array_nlogn(self.b)
-        self.assertEqual(ans, self.expected_b)
+        self.assertEqual(self.expected, arrays.find_maximum_product_of_two_elements_in_array_nlogn(self.array))
 
     def test_find_maximum_product_of_two_elements_in_array_n(self):
-        ans = arrays.find_maximum_product_of_two_elements_in_array_n(self.a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.find_maximum_product_of_two_elements_in_array_n(self.b)
-        self.assertEqual(ans, self.expected_b)
+        self.assertEqual(self.expected, arrays.find_maximum_product_of_two_elements_in_array_n(self.array))
 
 
 class TestDutchNationalFlagProblem(unittest.TestCase):
