@@ -202,31 +202,16 @@ class TestFindLongestConsecutiveSubarray(unittest.TestCase):
 
 
 class TestBoyerMooreMajorityAlgorithm(unittest.TestCase):
-    def test_boyer_moore_n_n(self):
-        self.a = [1, 2, 3, 2, 3, 0, -1]
-        self.expected_a = None
-        self.b = [1, 2, 3, 2, 3, 0, -1, 3, 3, 3, 1, 3, 3, 3]
-        self.expected_b = 3
-        self.c = [1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7]
-        self.expected_c = None
-        self.d = [1, 2, 3, 4, 5, 7, 7, 7, 7, 7, 7, 7]
-        self.expected_d = 7
-        self.e = [1]
-        self.expected_e = 1
-        self.f = []
-        self.expected_f = None
-        ans_a = arrays.boyer_moore_n_n(self.a)
-        self.assertEqual(ans_a, self.expected_a)
-        ans_b = arrays.boyer_moore_n_n(self.b)
-        self.assertEqual(ans_b, self.expected_b)
-        ans_c = arrays.boyer_moore_n_n(self.c)
-        self.assertEqual(ans_c, self.expected_c)
-        ans_d = arrays.boyer_moore_n_n(self.d)
-        self.assertEqual(ans_d, self.expected_d)
-        ans_e = arrays.boyer_moore_n_n(self.e)
-        self.assertEqual(ans_e, self.expected_e)
-        ans_f = arrays.boyer_moore_n_n(self.f)
-        self.assertEqual(ans_f, self.expected_f)
+    @parameterized.expand([
+        ("test 1", [1, 2, 3, 2, 3, 0, -1], None),
+        ("test 2", [1, 2, 3, 2, 3, 0, -1, 3, 3, 3, 1, 3, 3, 3], 3),
+        ("test 3", [1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7], None),
+        ("test 4", [1, 2, 3, 4, 5, 7, 7, 7, 7, 7, 7, 7], 7),
+        ("test 5", [1], 1),
+        ("test 6", [], None),
+    ])
+    def test_boyer_moore_n_n(self, _, array, expected):
+        self.assertEqual(expected, arrays.boyer_moore_n_n(array))
 
 
 class TestMoveAllZerosToTheEnd(unittest.TestCase):
