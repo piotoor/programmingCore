@@ -148,10 +148,10 @@ class TestMergeTwoArraysOneContainingVacantZeros(unittest.TestCase):
 class TestIndexOfZeroToBeReplacedToGetMaxLengthSubarrayOfOnes(unittest.TestCase):
     @parameterized.expand([
         ("test 1", [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1], 13),
-        ("test 1", [1, 1, 1, 1, 1, 1], -1),
-        ("test 1", [0, 0, 0, 0, 0], 0),
-        ("test 1", [0], 0),
-        ("test 1", [], -1),
+        ("test 2", [1, 1, 1, 1, 1, 1], -1),
+        ("test 3", [0, 0, 0, 0, 0], 0),
+        ("test 4", [0], 0),
+        ("test 5", [], -1),
     ])
     def test_index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(self, _, array, expected):
         self.assertEqual(expected, arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(array))
