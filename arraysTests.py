@@ -190,27 +190,15 @@ class TestFindEquilibriumIndexOfAnArray(unittest.TestCase):
 
 
 class TestFindLongestConsecutiveSubarray(unittest.TestCase):
-    def test_find_longest_consecutive_subarray_nlogn(self):
-        a = [2, 4, 8, 12, 13, 14, 6, 9, 2, 7, 5]
-        expected_ans = [4, 5, 6, 7, 8, 9]
-        ans = arrays.find_longest_consecutive_subarray_nlogn(a)
-        self.assertEqual(ans, expected_ans)
-        a = [-1, -2, 0, 4, 12, 13, 14, 3, 1, 2]
-        expected_ans = [-2, -1, 0, 1, 2, 3, 4]
-        ans = arrays.find_longest_consecutive_subarray_nlogn(a)
-        self.assertEqual(ans, expected_ans)
-        a = [-1, 0, 1]
-        expected_ans = [-1, 0, 1]
-        ans = arrays.find_longest_consecutive_subarray_nlogn(a)
-        self.assertEqual(ans, expected_ans)
-        a = [-1]
-        expected_ans = [-1]
-        ans = arrays.find_longest_consecutive_subarray_nlogn(a)
-        self.assertEqual(ans, expected_ans)
-        a = []
-        expected_ans = []
-        ans = arrays.find_longest_consecutive_subarray_nlogn(a)
-        self.assertEqual(ans, expected_ans)
+    @parameterized.expand([
+        ("test 1", [2, 4, 8, 12, 13, 14, 6, 9, 2, 7, 5], [4, 5, 6, 7, 8, 9]),
+        ("test 2", [-1, -2, 0, 4, 12, 13, 14, 3, 1, 2], [-2, -1, 0, 1, 2, 3, 4]),
+        ("test 3", [-1, 0, 1], [-1, 0, 1]),
+        ("test 4", [-1], [-1]),
+        ("test 5", [], []),
+    ])
+    def test_find_longest_consecutive_subarray_nlogn(self, _, array, expected):
+        self.assertEqual(expected, arrays.find_longest_consecutive_subarray_nlogn(array))
 
 
 class TestBoyerMooreMajorityAlgorithm(unittest.TestCase):
