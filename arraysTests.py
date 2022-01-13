@@ -128,23 +128,13 @@ class TestDutchNationalFlagProblem(unittest.TestCase):
         self.assertEqual(self.expected, arrays.dutch_national_flag_problem_n(self.array))
 
 
+@parameterized_class(("a", "b", "expected"), [
+    ([2, 4, 6, 7, 10, 20], [1, 2, 3, 4, 5], ([1, 2, 2, 3, 4, 4], [5, 6, 7, 10, 20])),
+    ([2, 4, 6, 7, 10, 20], [1], ([1, 2, 4, 6, 7, 10], [20]))
+])
 class TestMergeTwoSortedArraysInPlace(unittest.TestCase):
     def test_merge_two_sorted_arrays_in_place_mn(self):
-        a = [2, 4, 6, 7, 10, 20]
-        b = [1, 2, 3, 4, 5]
-        expected_a = [1, 2, 2, 3, 4, 4]
-        expected_b = [5, 6, 7, 10, 20]
-        ans_a, ans_b = arrays.merge_two_sorted_arrays_in_place_mn(a, b)
-        self.assertEqual(ans_a, expected_a)
-        self.assertEqual(ans_b, expected_b)
-
-        a = [2, 4, 6, 7, 10, 20]
-        b = [1]
-        expected_a = [1, 2, 4, 6, 7, 10]
-        expected_b = [20]
-        ans_a, ans_b = arrays.merge_two_sorted_arrays_in_place_mn(a, b)
-        self.assertEqual(ans_a, expected_a)
-        self.assertEqual(ans_b, expected_b)
+        self.assertEqual(self.expected, arrays.merge_two_sorted_arrays_in_place_mn(self.a, self.b))
 
 
 class TestMergeTwoArraysOneContainingVacantZeros(unittest.TestCase):
