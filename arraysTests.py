@@ -177,29 +177,16 @@ class TestEverySecondElementGreaterThanItsNeighbours(unittest.TestCase):
         self.assertEqual(expected, arrays.every_second_element_greater_than_its_neighbours_n(array))
 
 
-
 class TestFindEquilibriumIndexOfAnArray(unittest.TestCase):
-    def test_find_equilibrium_index_of_an_array_n(self):
-        a = [0, -3, 5, -4, -2, 3, 1, 0]
-        expected_ans = (0, 3, 7)
-        ans = arrays.find_equilibrium_index_of_an_array_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [0, 1, 2, 3, -10, 3, 4, -1]
-        expected_ans = (4, 6)
-        ans = arrays.find_equilibrium_index_of_an_array_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [0, 1]
-        expected_ans = ()
-        ans = arrays.find_equilibrium_index_of_an_array_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = [1, 0, 1]
-        expected_ans = (1,)
-        ans = arrays.find_equilibrium_index_of_an_array_n(a)
-        self.assertEqual(ans, expected_ans)
-        a = []
-        expected_ans = ()
-        ans = arrays.find_equilibrium_index_of_an_array_n(a)
-        self.assertEqual(ans, expected_ans)
+    @parameterized.expand([
+        ("test 1", [0, -3, 5, -4, -2, 3, 1, 0], (0, 3, 7)),
+        ("test 2", [0, 1, 2, 3, -10, 3, 4, -1], (4, 6)),
+        ("test 3", [0, 1], ()),
+        ("test 4", [1, 0, 1], (1, )),
+        ("test 5", [], ()),
+    ])
+    def test_find_equilibrium_index_of_an_array_n(self, _, array, expected):
+        self.assertEqual(expected, arrays.find_equilibrium_index_of_an_array_n(array))
 
 
 class TestFindLongestConsecutiveSubarray(unittest.TestCase):
