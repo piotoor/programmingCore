@@ -368,16 +368,17 @@ def boyer_moore_n_n(a):
 
 
 def move_all_zeros_to_the_end_n_1(a):
+    b = a.copy()
     target = 0
 
-    for i in range(len(a)):
-        if a[i] != 0:
-            a[target] = a[i]
+    for i in range(len(b)):
+        if b[i] != 0:
+            b[target] = b[i]
             if target != i:
-                a[i] = 0
+                b[i] = 0
             target += 1
 
-    return a
+    return b
 
 
 def replace_each_element_with_product_of_every_other_element_n_n(a):

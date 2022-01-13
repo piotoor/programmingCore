@@ -215,31 +215,16 @@ class TestBoyerMooreMajorityAlgorithm(unittest.TestCase):
 
 
 class TestMoveAllZerosToTheEnd(unittest.TestCase):
-    def test_move_all_zeros_to_the_end_n_1(self):
-        a = [1, 0, 2, 0, 1, 0, 0, 0, 1]
-        expected_a = [1, 2, 1, 1, 0, 0, 0, 0, 0]
-        b = [0, 0, 0, 0]
-        expected_b = [0, 0, 0, 0]
-        c = [1, 2, 3, 4, 1]
-        expected_c = [1, 2, 3, 4, 1]
-        d = [0, 0, 0, 0, 1, 2, 3, 4]
-        expected_d = [1, 2, 3, 4, 0, 0, 0, 0]
-        e = [0]
-        expected_e = [0]
-        f = []
-        expected_f = []
-        ans_a = arrays.move_all_zeros_to_the_end_n_1(a)
-        self.assertEqual(ans_a, expected_a)
-        ans_b = arrays.move_all_zeros_to_the_end_n_1(b)
-        self.assertEqual(ans_b, expected_b)
-        ans_c = arrays.move_all_zeros_to_the_end_n_1(c)
-        self.assertEqual(ans_c, expected_c)
-        ans_d = arrays.move_all_zeros_to_the_end_n_1(d)
-        self.assertEqual(ans_d, expected_d)
-        ans_e = arrays.move_all_zeros_to_the_end_n_1(e)
-        self.assertEqual(ans_e, expected_e)
-        ans_f = arrays.move_all_zeros_to_the_end_n_1(f)
-        self.assertEqual(ans_f, expected_f)
+    @parameterized.expand([
+        ("test 1", [1, 0, 2, 0, 1, 0, 0, 0, 1], [1, 2, 1, 1, 0, 0, 0, 0, 0]),
+        ("test 2", [0, 0, 0, 0], [0, 0, 0, 0]),
+        ("test 3", [1, 2, 3, 4, 1], [1, 2, 3, 4, 1]),
+        ("test 4", [0, 0, 0, 0, 1, 2, 3, 4], [1, 2, 3, 4, 0, 0, 0, 0]),
+        ("test 5", [0], [0]),
+        ("test 6", [], []),
+    ])
+    def test_move_all_zeros_to_the_end_n_1(self, _, array, expected):
+        self.assertEqual(expected, arrays.move_all_zeros_to_the_end_n_1(array))
 
 
 class TestReplaceEachElementWithProductOfEveryOtherElement(unittest.TestCase):
