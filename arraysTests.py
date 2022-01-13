@@ -168,19 +168,14 @@ class TestFisherYatesShuffle(unittest.TestCase):
 
 
 class TestEverySecondElementGreaterThanItsNeighbours(unittest.TestCase):
-    def test_every_second_element_greater_than_its_neighbours_n(self):
-        a = [9, 5, 3, 8, 2, 4, 7, 1, 0]
-        expected_a = [5, 9, 3, 8, 2, 7, 1, 4, 0]
-        ans = arrays.every_second_element_greater_than_its_neighbours_n(a)
-        self.assertEqual(ans, expected_a)
-        a = [1]
-        expected_a = [1]
-        ans = arrays.every_second_element_greater_than_its_neighbours_n(a)
-        self.assertEqual(ans, expected_a)
-        a = []
-        expected_a = []
-        ans = arrays.every_second_element_greater_than_its_neighbours_n(a)
-        self.assertEqual(ans, expected_a)
+    @parameterized.expand([
+        ("test 1", [9, 5, 3, 8, 2, 4, 7, 1, 0], [5, 9, 3, 8, 2, 7, 1, 4, 0]),
+        ("test 2", [1], [1]),
+        ("test 3", [], []),
+    ])
+    def test_every_second_element_greater_than_its_neighbours_n(self, _, array, expected):
+        self.assertEqual(expected, arrays.every_second_element_greater_than_its_neighbours_n(array))
+
 
 
 class TestFindEquilibriumIndexOfAnArray(unittest.TestCase):
