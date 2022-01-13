@@ -114,36 +114,18 @@ class TestFindMaximumProductOfTwoElementsInArray(unittest.TestCase):
         self.assertEqual(self.expected, arrays.find_maximum_product_of_two_elements_in_array_n(self.array))
 
 
+@parameterized_class(("array", "expected"), [
+    ([0, 1, 2, 1, 2, 0, 0, 2, 0, 2, 1, 2, 0, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2]),
+    ([0, 1, 2], [0, 1, 2]),
+    ([0, 1, 1, 1, 1, 1, 2], [0, 1, 1, 1, 1, 1, 2]),
+    ([], []),
+    ([1], [1]),
+    ([0], [0]),
+    ([0, 1], [0, 1]),
+])
 class TestDutchNationalFlagProblem(unittest.TestCase):
     def test_dutch_national_flag_problem_n(self):
-        a = [0, 1, 2, 1, 2, 0, 0, 2, 0, 2, 1, 2, 0, 1]
-        expected_a = [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2]
-        ans = arrays.dutch_national_flag_problem_n(a)
-        self.assertEqual(ans, expected_a)
-        a = [0, 1, 2]
-        expected_a = [0, 1, 2]
-        ans = arrays.dutch_national_flag_problem_n(a)
-        self.assertEqual(ans, expected_a)
-        a = [0, 1, 1, 1, 1, 1, 2]
-        expected_a = [0, 1, 1, 1, 1, 1, 2]
-        ans = arrays.dutch_national_flag_problem_n(a)
-        self.assertEqual(ans, expected_a)
-        a = []
-        expected_a = []
-        ans = arrays.dutch_national_flag_problem_n(a)
-        self.assertEqual(ans, expected_a)
-        a = [1]
-        expected_a = [1]
-        ans = arrays.dutch_national_flag_problem_n(a)
-        self.assertEqual(ans, expected_a)
-        a = [0]
-        expected_a = [0]
-        ans = arrays.dutch_national_flag_problem_n(a)
-        self.assertEqual(ans, expected_a)
-        a = [0, 1]
-        expected_a = [0, 1]
-        ans = arrays.dutch_national_flag_problem_n(a)
-        self.assertEqual(ans, expected_a)
+        self.assertEqual(self.expected, arrays.dutch_national_flag_problem_n(self.array))
 
 
 class TestMergeTwoSortedArraysInPlace(unittest.TestCase):
