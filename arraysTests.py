@@ -138,12 +138,11 @@ class TestMergeTwoSortedArraysInPlace(unittest.TestCase):
 
 
 class TestMergeTwoArraysOneContainingVacantZeros(unittest.TestCase):
-    def test_merge_two_arrays_one_containing_vacant_zeros_mn(self):
-        a = [0, 2, 3, 0, 6, 0, 0, 10, 12, 0]
-        b = [1, 4, 8, 12, 13]
-        expected_a = [1, 2, 3, 4, 6, 8, 10, 12, 12, 13]
-        ans = arrays.merge_two_arrays_one_containing_vacant_zeros_mn(a, b)
-        self.assertEqual(ans, expected_a)
+    @parameterized.expand([
+        ("test 1", [0, 2, 3, 0, 6, 0, 0, 10, 12, 0], [1, 4, 8, 12, 13], [1, 2, 3, 4, 6, 8, 10, 12, 12, 13]),
+    ])
+    def test_merge_two_arrays_one_containing_vacant_zeros_mn(self, _, a, b, expected):
+        self.assertEqual(expected, arrays.merge_two_arrays_one_containing_vacant_zeros_mn(a, b))
 
 
 class TestIndexOfZeroToBeReplacedToGetMaxLengthSubarrayOfOnes(unittest.TestCase):
