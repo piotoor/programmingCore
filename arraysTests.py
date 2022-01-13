@@ -146,28 +146,15 @@ class TestMergeTwoArraysOneContainingVacantZeros(unittest.TestCase):
 
 
 class TestIndexOfZeroToBeReplacedToGetMaxLengthSubarrayOfOnes(unittest.TestCase):
-    def test_index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(self):
-        a = [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]
-        b = [1, 1, 1, 1, 1, 1]
-        c = [0, 0, 0, 0, 0]
-        d = [0]
-        e = []
-
-        expected_ans = 13
-        expected_ans_b = -1
-        expected_ans_c = 0
-        expected_ans_d = 0
-        expected_ans_e = -1
-        ans = arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(a)
-        self.assertEqual(ans, expected_ans)
-        ans = arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(b)
-        self.assertEqual(ans, expected_ans_b)
-        ans = arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(c)
-        self.assertEqual(ans, expected_ans_c)
-        ans = arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(d)
-        self.assertEqual(ans, expected_ans_d)
-        ans = arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(e)
-        self.assertEqual(ans, expected_ans_e)
+    @parameterized.expand([
+        ("test 1", [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1], 13),
+        ("test 1", [1, 1, 1, 1, 1, 1], -1),
+        ("test 1", [0, 0, 0, 0, 0], 0),
+        ("test 1", [0], 0),
+        ("test 1", [], -1),
+    ])
+    def test_index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(self, _, array, expected):
+        self.assertEqual(expected, arrays.index_of_zero_to_be_replaced_to_get_max_length_subarray_of_ones_n(array))
 
 
 class TestFisherYatesShuffle(unittest.TestCase):
