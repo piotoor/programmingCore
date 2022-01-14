@@ -1,6 +1,7 @@
 import unittest
 from parameterized import parameterized_class, parameterized
 import arrays
+from itertools import permutations
 
 
 @parameterized_class(("array", "sum", "expected"), [
@@ -164,7 +165,7 @@ class TestFisherYatesShuffle(unittest.TestCase):
         ("test 3", [0, 1, 2]),
     ])
     def test_fisher_yates_shuffle_n(self, _, array):
-        self.assertNotEqual(array, arrays.fisher_yates_shuffle_n(array.copy()))
+        self.assertTrue(tuple(arrays.fisher_yates_shuffle_n(array.copy())) in list(permutations(array)))
 
 
 class TestEverySecondElementGreaterThanItsNeighbours(unittest.TestCase):
