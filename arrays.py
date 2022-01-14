@@ -411,8 +411,9 @@ def replace_each_element_with_product_of_every_other_element_n_1_rec(a, left, i,
 
 
 def replace_each_element_with_product_of_every_other_element_n_1(a):
-    replace_each_element_with_product_of_every_other_element_n_1_rec(a, 1, 0, len(a))
-    return a
+    b = a.copy()
+    replace_each_element_with_product_of_every_other_element_n_1_rec(b, 1, 0, len(a))
+    return b
 
 
 def longest_increasing_subsequence_nlogn(a):

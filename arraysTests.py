@@ -227,54 +227,21 @@ class TestMoveAllZerosToTheEnd(unittest.TestCase):
         self.assertEqual(expected, arrays.move_all_zeros_to_the_end_n_1(array))
 
 
+@parameterized_class(("array", "expected"), [
+    ([1, 2, 3, 4, 5, 6], [720, 360, 240, 180, 144, 120]),
+    ([-1, -10, 20, 4, 11], [-8800, -880, 440, 2200, 800]),
+    ([0, 1, 2, 3, 4, 5], [120, 0, 0, 0, 0, 0]),
+    ([1, 2], [2, 1]),
+    ([1], [1]),
+    ([0], [1]),
+    ([], []),
+])
 class TestReplaceEachElementWithProductOfEveryOtherElement(unittest.TestCase):
-    def setUp(self):
-        self.a = [1, 2, 3, 4, 5, 6]
-        self.expected_a = [720, 360, 240, 180, 144, 120]
-        self.b = [-1, -10, 20, 4, 11]
-        self.expected_b = [-8800, -880, 440, 2200, 800]
-        self.c = [0, 1, 2, 3, 4, 5]
-        self.expected_c = [120, 0, 0, 0, 0, 0]
-        self.d = [1, 2]
-        self.expected_d = [2, 1]
-        self.e = [1]
-        self.expected_e = [1]
-        self.f = [0]
-        self.expected_f = [1]
-        self.g = []
-        self.expected_g = []
-
     def test_replace_each_element_with_product_of_every_other_element_n_n(self):
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.b)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.c)
-        self.assertEqual(ans, self.expected_c)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.d)
-        self.assertEqual(ans, self.expected_d)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.e)
-        self.assertEqual(ans, self.expected_e)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.f)
-        self.assertEqual(ans, self.expected_f)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_n(self.g)
-        self.assertEqual(ans, self.expected_g)
+        self.assertEqual(self.expected, arrays.replace_each_element_with_product_of_every_other_element_n_n(self.array))
 
     def test_replace_each_element_with_product_of_every_other_element_n_1(self):
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.a)
-        self.assertEqual(ans, self.expected_a)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.b)
-        self.assertEqual(ans, self.expected_b)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.c)
-        self.assertEqual(ans, self.expected_c)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.d)
-        self.assertEqual(ans, self.expected_d)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.e)
-        self.assertEqual(ans, self.expected_e)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.f)
-        self.assertEqual(ans, self.expected_f)
-        ans = arrays.replace_each_element_with_product_of_every_other_element_n_1(self.g)
-        self.assertEqual(ans, self.expected_g)
+        self.assertEqual(self.expected, arrays.replace_each_element_with_product_of_every_other_element_n_1(self.array))
 
 
 class TestLongestIncreasingSubsequence(unittest.TestCase):
